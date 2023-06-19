@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AllRouter from './Router';
 
 function App() {
+  const updateOnlineStatus = () =>{
+    console.log(`Your network status is ${navigator.onLine ? "Online" : "Offline"} `)
+  }
+  const getDeviceStatus = () => {
+    console.log(`Your network status is ${navigator.onLine ? "Online" : "Offline"} ${navigator.onLine} `)
+    window.addEventListener('online',  updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+  }
+
+  useEffect(()=>{
+    getDeviceStatus();
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <AllRouter/>
     </div>
   );
 }
