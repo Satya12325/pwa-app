@@ -17,8 +17,8 @@ export default function Home() {
     };
    
   return (
-    <div>
-          <input
+    <div style={{marginTop:"90px"}}>
+          {/* <input
      value={name}
      onKeyPress={search}
       onChange={handleChange}
@@ -27,7 +27,9 @@ export default function Home() {
       {
         nameArr?.map((name)=> <div>{name}</div>)
       }
-     </div>
+     </div> */}
+
+     <h1>Home</h1>
     </div>
   )
 }
